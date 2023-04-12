@@ -1,8 +1,11 @@
 import React from 'react';
 import { useState } from 'react';
 import InputWithLabel from './InputWithLabel';
+import style from './Styles.module.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
 
-function AddTodoForm({onAddTodo}) {
+function AddTodoForm({onAddTodoItem}) {
 
     const [todoTitle, setTodoTitle] = useState("");
 
@@ -13,16 +16,18 @@ function AddTodoForm({onAddTodo}) {
     
     const handleAddTodo = (event) => {
         event.preventDefault()
-        onAddTodo({fields: {Title: todoTitle}, id: Date.now()})
+        if (!todoTitle.trim()) return
+        onAddTodoItem(todoTitle)
         setTodoTitle("");
     }
 
     return (
-            <form onSubmit={handleAddTodo}>
-                <InputWithLabel  todoTitle={todoTitle} handleTitleChange={handleTitleChange}>Title</InputWithLabel>
-                <button type="submit">Add</button>
-
+        <div>
+            <form onSubmit={handleAddTodo} className={style.todoTitle}>
+                <InputWithLabel todoTitle={todoTitle} handleTitleChange={handleTitleChange}>Title</InputWithLabel>
+                <FontAwesomeIcon icon={faSquarePlus} className={style.addButton} onClick={(e)=>{handleAddTodo(e)}} />
             </form>
+        </div>
     );
 }
 

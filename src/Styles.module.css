@@ -1,0 +1,82 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-image: linear-gradient(to right, #AA96DA , #FCBAD3);
+    font-family: 'Dancing Script', cursive;
+    font-family: 'Inspiration', cursive;
+    font-family: 'League Spartan', sans-serif;
+    font-family: 'Lobster', cursive;
+    font-family: 'Montserrat', sans-serif;
+    font-family: 'Nunito Sans', sans-serif;
+    font-family: 'Roboto', sans-serif;
+    font-family: 'Staatliches', cursive;
+}
+
+.listItem {
+    list-style: none;
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+
+}
+
+.app {
+    background-color: whitesmoke;
+    width: 650px;
+    height: 650px; 
+    min-height: 450px;
+    padding: 30px;
+    border-radius: 10px;
+    margin: 20px;
+    border: 5px solid whitesmoke;
+}
+
+.input {
+    width: 75%;
+    height: 100%;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.removeButton {
+    background-color: #F5EBEB;
+    font-size: 1,5rem;
+    color: #AA96DA;
+    
+}
+
+.addButton {
+    color: #AA96DA;
+    font-size: 2rem;
+    margin-right: 10px;
+}
+
+.todoText {
+    font-size: large;
+    /* border: 1px solid black; */
+}
+
+:global #root {
+    display: flex;
+    justify-content: center;
+}
+
+:global #header {
+    font-size: xx-large;
+    display: flex;
+    justify-content: center;
+}
+
+.todoTitle {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+    list-style-type: disc;
+    margin-block-start: 1em;
+    margin-block-end: 1em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    padding-inline-start: 40px;
+}
