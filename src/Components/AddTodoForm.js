@@ -4,7 +4,7 @@ import InputWithLabel from './InputWithLabel';
 import style from './Styles.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
-
+import PropTypes from  "prop-types";
 function AddTodoForm({onAddTodoItem}) {
 
     const [todoTitle, setTodoTitle] = useState("");
@@ -30,5 +30,9 @@ function AddTodoForm({onAddTodoItem}) {
         </div>
     );
 }
+
+AddTodoForm.propTypes = {
+    onAddTodoItem: PropTypes.func,
+};
 
 export default AddTodoForm;

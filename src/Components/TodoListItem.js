@@ -3,6 +3,8 @@ import style from './Styles.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTrash } from '@fortawesome/free-solid-svg-icons';
 import { Tooltip } from 'react-tooltip';
+import PropTypes from  "prop-types";
+
 
 
 function TodoListItem({todo, onToggle, onRemoveTodoItem}) {
@@ -16,5 +18,11 @@ function TodoListItem({todo, onToggle, onRemoveTodoItem}) {
         </li>
     );
 }
+
+TodoListItem.propTypes = {
+    id: PropTypes.string,
+    onRemoveTodoItem: PropTypes.func,
+    title: PropTypes.string,
+};
 
 export default TodoListItem;

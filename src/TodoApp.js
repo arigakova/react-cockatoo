@@ -1,9 +1,9 @@
 import React from 'react';
-import TodoList from './TodoList';
-import AddTodoForm from './AddTodoForm';
+import TodoList from './Components/TodoList';
+import AddTodoForm from './Components/AddTodoForm';
 import { useState, useEffect } from 'react';
-import style from './Styles.module.css';
-import TodoContainer from './TodoContainer';
+import style from './Components/Styles.module.css';
+import TodoContainer from './Components/TodoContainer';
 
 const TODO_LIST_ITEM_ENDPOINT = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/TodoListItem`;
 // const createTodoListItem = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/TodoListItem`;

@@ -1,6 +1,7 @@
-import React from 'react'
-import TodoApp from './TodoApp'
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom'
+import React from 'react';
+//import TodoApp from './TodoApp';
+import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
+import TodoApp from "./TodoApp";
 
 function App() {
     return (
