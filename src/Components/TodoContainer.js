@@ -1,5 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
+import PropTypes from 'prop-types';
 // import style from './Styles.module.css';
 
 const url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/TodoList`;
@@ -50,5 +51,10 @@ function TodoContainer({onSelectTodo}) {
         </>
     );
 }
+
+TodoContainer.propTypes = {
+    onSelectTodo: PropTypes.func,
+    todos: PropTypes.array,
+  };
 
 export default TodoContainer;
