@@ -26,8 +26,6 @@ const InputWithLabel = function({children, handleTitleChange, todoTitle}) {
 
 InputWithLabel.propTypes =  {
     children: PropTypes.node.isRequired,
-    //todoTitle: PropTypes.string,
-    //handleTitleChange: PropTypes.func,
 };
 
 export default InputWithLabel;
