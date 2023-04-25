@@ -1,9 +1,9 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
-// import style from './Styles.module.css';
 
 const url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/TodoList`;
+
 const options = {
     method: "GET",
     headers: {
@@ -12,7 +12,7 @@ const options = {
     }
 }
 
-function TodoContainer({onSelectTodo}) {
+function TodoContainer({ onSelectTodo }) {
     const [todos, setTodos] = useState([])
     const [isLoading, setIsLoading] = useState(true)
 
@@ -25,12 +25,6 @@ function TodoContainer({onSelectTodo}) {
             })
             .catch((error) => console.warn(error));
     }, []);
-
-    // useEffect(() => {
-    //     if (!isLoading) {
-    //         onSelectTodo(todos[0])
-    //     }
-    // }, [isLoading, todos])
 
     return (
         <>
@@ -55,6 +49,6 @@ function TodoContainer({onSelectTodo}) {
 TodoContainer.propTypes = {
     onSelectTodo: PropTypes.func,
     todos: PropTypes.array,
-  };
+};
 
 export default TodoContainer;
