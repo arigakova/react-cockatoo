@@ -3,36 +3,42 @@ import { useState } from 'react';
 import InputWithLabel from './InputWithLabel';
 import style from './Styles.module.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faSquarePlus } from '@fortawesome/free-solid-svg-icons';
+import { faSquarePlus, faRectangleXmark } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from  "prop-types";
-function AddTodoForm({onAddTodoItem}) {
 
-    const [todoTitle, setTodoTitle] = useState("");
+function AddTodoForm({onAddTodo}) {
 
-    const handleTitleChange = (event) => {
-        var newTodoTitle = event.target.value;
-        setTodoTitle(newTodoTitle);
+    const [todoName, setTodoName] = useState("");
+
+    const handleNameChange = (event) => {
+        var newTodoName = event.target.value;
+        setTodoName(newTodoName);
     }
     
     const handleAddTodo = (event) => {
         event.preventDefault()
-        if (!todoTitle.trim()) return
-        onAddTodoItem(todoTitle)
-        setTodoTitle("");
+        if (!todoName.trim()) return
+        onAddTodo(todoName)
+        setTodoName("");
+    }
+
+    const handleCancelAddTodo = (event) => {
+        event.preventDefault()
+        setTodoName("");
+        onAddTodo(null)
     }
 
     return (
-        <div>
-            <form onSubmit={handleAddTodo} className={style.todoTitle}>
-                <InputWithLabel todoTitle={todoTitle} handleTitleChange={handleTitleChange}>Title</InputWithLabel>
-                <FontAwesomeIcon icon={faSquarePlus} className={style.addButton} onClick={(e)=>{handleAddTodo(e)}} />
-            </form>
-        </div>
+        <form onSubmit={handleAddTodo} className={`${style.todoTitle} ${style.newTodoForm}`}>
+            <InputWithLabel value={todoName} handleChange={handleNameChange} placeholder="Enter your new todo name here">NEW</InputWithLabel>
+            <FontAwesomeIcon icon={faSquarePlus} className={style.addButton} onClick={(e)=>{handleAddTodo(e)}} />
+            <FontAwesomeIcon icon={faRectangleXmark} className={style.addButton} onClick={(e)=>{handleCancelAddTodo(e)}} />
+        </form>
     );
 }
 
 AddTodoForm.propTypes = {
-    onAddTodoItem: PropTypes.func,
+    onAddTodo: PropTypes.func,
 };
 
 export default AddTodoForm;
