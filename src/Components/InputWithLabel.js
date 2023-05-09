@@ -3,22 +3,23 @@ import { useEffect, useRef } from 'react';
 import style from './Styles.module.css';
 import PropTypes from  "prop-types";
 
-const InputWithLabel = function({children, handleTitleChange, todoTitle}) {
+const InputWithLabel = function({children, handleChange, value, placeholder}) {
     const inputRef = useRef(null)
+    
     useEffect(() => {
         inputRef.current.focus()
     })
 
     return (
             <>
-                <label htmlFor="todoTitle">{children}</label>
+                <label htmlFor="input">{children}</label>
                 <input 
-                    type="text" placeholder="Enter your to do here"               
-                    id="todoTitle"
+                    type="text" placeholder={placeholder}
+                    id="input"
                     name="title"
                     ref= {inputRef}
-                    value={todoTitle}
-                    onChange={handleTitleChange}
+                    value={value}
+                    onChange={handleChange}
                     className={style.input} />
             </>
         )

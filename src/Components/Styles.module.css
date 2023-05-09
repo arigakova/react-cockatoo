@@ -3,7 +3,8 @@
 }
 
 body {
-    background-image: linear-gradient(to right, #AA96DA , #FCBAD3);
+    background-color: #2A4126;
+    font-family: 'Barlow Condensed', sans-serif;
     font-family: 'Dancing Script', cursive;
     font-family: 'Inspiration', cursive;
     font-family: 'League Spartan', sans-serif;
@@ -12,6 +13,7 @@ body {
     font-family: 'Nunito Sans', sans-serif;
     font-family: 'Roboto', sans-serif;
     font-family: 'Staatliches', cursive;
+    font-size: x-large;
 }
 
 .listItem {
@@ -19,18 +21,23 @@ body {
     margin: 10px 0;
     display: flex;
     align-items: center;
-
+    color: #2A4126;
 }
 
 .app {
-    background-color: whitesmoke;
+    background-image: url(https://images.unsplash.com/photo-1512950050685-b1d4ae63d2df?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=3869&q=80);
+    background-color: #E7E8D7;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     width: 650px;
-    height: 650px; 
-    min-height: 450px;
+    height: auto; 
+    min-height: 650px;
     padding: 30px;
     border-radius: 10px;
     margin: 20px;
     border: 5px solid whitesmoke;
+    position: relative;
 }
 
 .input {
@@ -38,24 +45,32 @@ body {
     height: 100%;
     margin-left: 10px;
     margin-right: 10px;
+    padding: 10px;
+    border-radius: 10px;
+    border: 3px solid #f3f5de;
+}
+
+.input:focus {
+    outline: none;
 }
 
 .removeButton {
     background-color: #F5EBEB;
-    font-size: 1,5rem;
-    color: #AA96DA;
+    font-size: 1rem;
+    color: #808A51;
+    margin-left: 5px;
     
 }
 
 .addButton {
-    color: #AA96DA;
+    color: #808A51;
     font-size: 2rem;
     margin-right: 10px;
 }
 
 .todoText {
     font-size: large;
-    /* border: 1px solid black; */
+    
 }
 
 :global #root {
@@ -79,4 +94,193 @@ body {
     margin-inline-start: 0px;
     margin-inline-end: 0px;
     padding-inline-start: 40px;
+    color: #2A4126;
+}
+
+.checkbox:checked {
+    accent-color: #808A51;
+}
+
+.toggle {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+    
+}
+
+.newTodoForm {
+    margin-top: 100px;
+}
+
+/* Toggle size*/
+.turn {
+    cursor: pointer;
+    text-indent: -100px;
+    width: 50px;
+    height: 30px;
+    background: #808A51;
+    color: #2A4126;
+    display: block;
+    border-radius: 30px;
+    position: relative;
+    margin-left: 15px;
+}
+
+/* circle size and color*/
+.turn:after {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    width: 20px;
+    height: 20px;
+    background: #fff;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+/* active status color*/
+.toggle:checked + label {
+    background: #2A4126;
+}
+
+.toggle:checked + label:after {
+    left: calc(100% - 3px);
+    transform: translateX(-100%);
+}
+
+.turn:active:after {
+    width: 30px;
+}
+
+.toggleposition {
+    display: flex;
+    float: right;
+}
+
+label {
+    min-width: 50px;
+}
+
+.dropdownbtn {
+    background-color: #f3f5de;
+    color: #2A4126;
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.create {
+    color: #2A4126;
+    margin-top: 100px;
+    margin-left: 100px;
+}
+
+select.dropdownbtn option:first-of-type {
+    text-transform: uppercase;
+    font-style: italic;
+}
+
+select.dropdownbtn option[disabled] {
+    display: none;
+}
+
+.copyright {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    color: #2A4126;
+    text-decoration: none;
+    font-size: x-small;
+}
+
+.disclaimer {
+    width: 400px;
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    text-align: justify;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.link {
+    color: white;
+}
+
+#dropdown {
+    margin: 0px;
+}
+
+/* Style for medium screens*/ 
+    @media only screen and (max-width: 768px) {
+    .todoTitle {
+    width: 100%;
+    margin: auto;
+    padding-inline-start: 0px;
+    margin-top: 20px;
+    }
+
+    .app {
+        min-height: 850px;
+    }
+
+    .create {
+        margin-top: 150px;
+        font-size: larger;
+    }
+
+    .toggleposition {
+        margin-top: 20px;
+    }
+
+    .listItem {
+        font-size: x-large;
+    }
+
+}
+
+/* Style for small screens*/ 
+    @media only screen and (max-width: 450px) {
+    .todoTitle {
+    width: 100%;
+    margin-top: 40px;
+    padding-inline-start: 0px;
+    }
+
+    .app {
+    display: block;
+    padding: 10px;
+    -webkit-text-size-adjust: none;
+    }
+
+    .create {
+        align-items: center;
+        margin-left: 15px;
+        white-space: normal;
+        word-break: break-all;
+    }
+
+    .create span {
+        display: block;
+    }
+
+    .toggleposition {
+        margin-top: 10px;
+    }
+
+    .input {
+        margin-left: 0px;
+        margin-right: 0px;
+    }
+
+    .addButton {
+        margin-left: 5px;
+        margin-right: 5px;
+    }
 }

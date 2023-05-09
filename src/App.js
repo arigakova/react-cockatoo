@@ -1,16 +1,16 @@
 import React from 'react';
-//import TodoApp from './TodoApp';
-import { BrowserRouter, Routes, Route, Link } from 'react-router-dom';
-import TodoApp from "./TodoApp";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import TodoContainer from "./TodoContainer";
+import Copyright from './Components/Copyright';
 
 function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route path="/" exact element={<TodoApp/>}></Route>
+                <Route path="/" exact element={<TodoContainer/>}></Route>
                 <Route
-                    path="/new"
-                    element={<Link to={"/"}>back home</Link>}
+                    path="/copyright"
+                    element={<Copyright/>}
                     exact
                 ></Route>
             </Routes>
