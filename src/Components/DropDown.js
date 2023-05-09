@@ -3,12 +3,12 @@ import style from './Styles.module.css';
 import PropTypes from  "prop-types";
 
 function DropDown({newItemText, placeholderText, items, onSelectItem, onSelectNewItem}) {
-    const [selectedItem, setSelectedItem] = useState(null);
+    const [selectedItem, setSelectedItem] = useState('');
 
     useEffect(() => {
         const activeItem = items.find(it => it.isSelected)
         if (activeItem) {
-            setSelectedItem(activeItem)
+            setSelectedItem(activeItem.text)
         } else {
             var selectElement = document.getElementById("dropdown");
             selectElement.selectedIndex = 0;
@@ -20,7 +20,7 @@ function DropDown({newItemText, placeholderText, items, onSelectItem, onSelectNe
         if (selectedValue === "NEW_ITEM") {
             onSelectNewItem()
         } else {
-            const item = items.find(it => it.id === selectedValue)
+            const item = items.find(it => it.text === selectedValue)
             if (item) {
                 setSelectedItem(item)
                 onSelectItem(selectedValue)
@@ -31,10 +31,10 @@ function DropDown({newItemText, placeholderText, items, onSelectItem, onSelectNe
     return (
         <>
             <label htmlFor="dropdown"></label>
-            <select id="dropdown" value={selectedItem?selectedItem.id:""} onChange={handleSelectChange} className={style.dropdownbtn}>
+            <select id="dropdown" value={selectedItem} onChange={handleSelectChange} className={style.dropdownbtn}>
                 <option value="" disabled className={style.placeholder}>{placeholderText}</option>
-                {items.map((item) => (
-                    <option key={item.id} value={item.id} className={style.dropdowncontent}>
+                {items.map((item, index) => (
+                    <option key={index} value={item.text} className={style.dropdowncontent}>
                         {item.text}
                     </option>
                 ))}
